@@ -1,0 +1,24 @@
+﻿<Window x:Class="CalorieCounter.ActivityListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalorieCounter"
+        mc:Ignorable="d"
+         Title="Activity List" Height="400" Width="600" ResizeMode="NoResize">
+    <Grid>
+        <ListView Name="ActivityListView" Margin="19,10,10,102">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Activity" DisplayMemberBinding="{Binding ActivityTitle}" />
+                    <GridViewColumn Header="Intensity" DisplayMemberBinding="{Binding IntensityFkNavigation.IntensityLevel}" />
+                    <GridViewColumn Header="Calories burned per minute" Width="200" DisplayMemberBinding="{Binding CaloriesBurned}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox Name="MinutesInput" Margin="73,291,392,52" />
+        <Button Content="Add to List" Click="AddToList_Click" Margin="349,317,20,10" />
+        <Label Content=" minutes:" HorizontalAlignment="Left" Margin="0,287,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
