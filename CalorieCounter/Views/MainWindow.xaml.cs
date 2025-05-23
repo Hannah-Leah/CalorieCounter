@@ -47,24 +47,57 @@ namespace CalorieCounter
         /// <param name="e"></param>
         private void CalculateTotalCalories_Click(object sender, RoutedEventArgs e)
         {
-            double totalCalories = ViewModel.ListOfFoods.Sum(item => item.Calories);
-            double totalProtein = ViewModel.ListOfFoods
-                .Where(item => !item.IsActivity).Sum(item => item.Protein);
-            double totalCarbs = ViewModel.ListOfFoods
-                .Where(item => !item.IsActivity).Sum(item => item.Carbs);
-            double totalFat = ViewModel.ListOfFoods
-                .Where(item => !item.IsActivity).Sum(item => item.Fat);
+            var totalCalories = ViewModel.ListOfFoods.Sum(item => item.Calories);
+            var totalProtein = ViewModel.ListOfFoods.Where(item => !item.IsActivity).Sum(item => item.Protein);
+            var totalCarbs = ViewModel.ListOfFoods.Where(item => !item.IsActivity).Sum(item => item.Carbs);
+            var totalFat = ViewModel.ListOfFoods.Where(item => !item.IsActivity).Sum(item => item.Fat);
+
+            // Map back to categories
+            var categoryCalories = new Dictionary<string, double>();
+
+            foreach (var foodListItem in ViewModel.ListOfFoods)
+            {
+                var originalFood = ViewModel.Food.FirstOrDefault(f => f.Title == foodListItem.Title);
+                if (originalFood != null)
+                {
+                    double foodCalories = foodListItem.Calories;
+
+                    var categories = originalFood.FoodFoodCategories.Select(fc => fc.FoodCategory.CategoryTitle).ToList();
+                    if (categories.Count == 0) continue;
+
+                    // Divide calories evenly across all categories
+                    double caloriesPerCategory = foodCalories / categories.Count;
+
+                    foreach (var category in categories)
+                    {
+                        if (categoryCalories.ContainsKey(category))
+                            categoryCalories[category] += caloriesPerCategory;
+                        else
+                            categoryCalories[category] = caloriesPerCategory;
+                    }
+                }
+            }
+
+            // Build category % string
+            var categoryInfo = new StringBuilder();
+            foreach (var entry in categoryCalories.OrderByDescending(kvp => kvp.Value))
+            {
+                double percent = totalCalories > 0 ? (entry.Value / totalCalories) * 100 : 0;
+                categoryInfo.AppendLine($"{entry.Key}: {Math.Round(percent)}%");
+            }
 
             MessageBox.Show(
                 $"Total Calories: {Math.Round(totalCalories)} kcal\n" +
                 $"Protein: {totalProtein} g\n" +
                 $"Carbs: {totalCarbs} g\n" +
-                $"Fat: {totalFat} g",
+                $"Fat: {totalFat} g\n\n" +
+                $"Calories by Category:\n{categoryInfo}",
                 "Meal Summary",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information
             );
         }
+
 
 
 
