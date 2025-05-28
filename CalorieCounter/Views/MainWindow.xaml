@@ -71,12 +71,12 @@
 
         <!--Buttons-->
 
-        <Button Content="Calculate Total Calories" Click="CalculateTotalCalories_Click" RenderTransformOrigin="2.202,4.078" Margin="19,420,713,10"/>
-        <Button Content="Clear List" Click="ClearList_Click" Margin="306,425,608,15"/>
+        <Button Content="Calculate Total Calories" Click="CalculateTotalCalories_Click" RenderTransformOrigin="2.202,4.078" Margin="722,5,10,425"/>
+        <Button Content="Clear List" Click="ClearList_Click" Margin="293,429,621,11"/>
 
-        <Button Content="Add Food" Click="AddFood_Click" Margin="715,11,199,430"/>
-        <Button Content="Edit food" Click="EditFood_Click" Margin="806,10,107,431"/>
-        <Button Content="Delete food" Click="DeleteFood_Click" Margin="898,10,10,430"/>
+        <Button Content="Add Food" Click="AddFood_Click" Margin="10,431,904,10"/>
+        <Button Content="Edit food" Click="EditFood_Click" Margin="101,430,812,11"/>
+        <Button Content="Delete food" Click="DeleteFood_Click" Margin="196,429,712,11"/>
 
         <Button Content="View Activities" Click="ViewActivities_Click" Width="98" Height="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="612,11,0,0"/>
         <Button Content="BMI Calculator" Click="BMICalculator_Click"
@@ -89,7 +89,7 @@
     DisplayMemberPath="CategoryTitle"
     SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"
     SelectionChanged="CategoryComboBox_SelectionChanged"
-    Margin="379,16,528,418"/>
+    Margin="306,16,558,418"/>
 
 
 

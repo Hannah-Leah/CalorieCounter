@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace CalorieCounter
 {
@@ -83,6 +84,19 @@ namespace CalorieCounter
             }
         }
 
+        private void BrowseImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Select Image",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                ImagePathBox.Text = openFileDialog.FileName;
+            }
+        }
 
 
     }
