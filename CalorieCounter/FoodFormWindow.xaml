@@ -7,26 +7,29 @@
         mc:Ignorable="d"
         Title="FoodFormWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Food name:" HorizontalAlignment="Left" Margin="121,40,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TitleBox" HorizontalAlignment="Left" Margin="198,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
-        <Label Content="Calories(100g):" HorizontalAlignment="Left" Margin="110,71,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="CaloriesBox" HorizontalAlignment="Left" Margin="198,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
-        <Label Content="Protein(g):" HorizontalAlignment="Left" Margin="134,102,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="ProteinBox" HorizontalAlignment="Left" Margin="198,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
-        <Label Content="Carb(g)s:" HorizontalAlignment="Left" Margin="138,137,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="CarbsBox" HorizontalAlignment="Left" Margin="198,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
-        <Label Content="Fat(g):" HorizontalAlignment="Left" Margin="142,175,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="FatBox" HorizontalAlignment="Left" Margin="200,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
-        <Label Content="Image:" HorizontalAlignment="Left" Margin="138,206,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="ImagePathBox" HorizontalAlignment="Left" Margin="200,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="318" IsReadOnly="True"/>
-        <Button Content="Browse..." HorizontalAlignment="Left" Margin="528,210,0,0" VerticalAlignment="Top" Width="75" Click="BrowseImage_Click"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="/foodbackground.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Label Content="Food name:" HorizontalAlignment="Left" Margin="189,76,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TitleBox" HorizontalAlignment="Left" Margin="273,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
+        <Label Content="Calories(100g):" HorizontalAlignment="Left" Margin="181,107,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="CaloriesBox" HorizontalAlignment="Left" Margin="273,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
+        <Label Content="Protein(100g):" HorizontalAlignment="Left" Margin="180,134,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ProteinBox" HorizontalAlignment="Left" Margin="273,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
+        <Label Content="Carb(100g)s:" HorizontalAlignment="Left" Margin="180,160,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="CarbsBox" HorizontalAlignment="Left" Margin="273,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
+        <Label Content="Fat(100g):" HorizontalAlignment="Left" Margin="189,191,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="FatBox" HorizontalAlignment="Left" Margin="273,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
+        <Label Content="Image:" HorizontalAlignment="Left" Margin="129,237,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ImagePathBox" HorizontalAlignment="Left" Margin="180,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="318" IsReadOnly="True" Height="48"/>
+        <Button Content="Browse..." HorizontalAlignment="Left" Margin="503,240,0,0" VerticalAlignment="Top" Width="75" Click="BrowseImage_Click"/>
 
-        <Label Content="Category:" HorizontalAlignment="Left" Margin="131,237,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="CategoryComboBox" DisplayMemberPath="CategoryTitle" SelectedValuePath="FoodCategoryId" Margin="197,241,457,155"/>
+        <Label Content="Category:" HorizontalAlignment="Left" Margin="129,299,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="CategoryComboBox" DisplayMemberPath="CategoryTitle" SelectedValuePath="FoodCategoryId" Margin="195,301,459,90"/>
 
 
 
-        <Button Content="Save" Click="Save_Click" Margin="156,305,485,78"/>
+        <Button Content="Save" Click="Save_Click" Margin="472,334,170,49"/>
 
 
 

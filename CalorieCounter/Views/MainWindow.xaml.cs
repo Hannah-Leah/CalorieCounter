@@ -203,6 +203,10 @@ namespace CalorieCounter
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("Please select a food item!");
+            }
         }
 
 
@@ -235,6 +239,10 @@ namespace CalorieCounter
                     ViewModel.DbContext.SaveChanges();
                     ViewModel.Food.Remove(selected);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please select a food item!");
             }
         }
 
@@ -284,11 +292,15 @@ namespace CalorieCounter
             ViewModel.FilterFoodByCategory();
         }
 
-
-
-
-
-
+        private void FoodDatabaseButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button?.ContextMenu != null)
+            {
+                button.ContextMenu.PlacementTarget = button;
+                button.ContextMenu.IsOpen = true;
+            }
+        }
 
     }
 }

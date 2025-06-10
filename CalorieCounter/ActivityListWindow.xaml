@@ -17,7 +17,23 @@
             </ListView.View>
         </ListView>
         <TextBox Name="MinutesInput" Margin="73,291,392,52" />
-        <Button Content="Add to List" Click="AddToList_Click" Margin="349,317,20,10" />
+        <Button Content="Add to List" Click="AddToList_Click" Margin="349,317,20,10" Background="#FFD5DDFF">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" BorderThickness="1" BorderBrush="#FFA1A1A1" >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFC1EDFF" Offset="0.0"/>
+                                <GradientStop Color="#FFE9E9E9" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Foreground>Black</Button.Foreground>
+            <Button.FontWeight>Bold</Button.FontWeight>
+        </Button>
         <Label Content=" minutes:" HorizontalAlignment="Left" Margin="0,287,0,0" VerticalAlignment="Top"/>
 
     </Grid>

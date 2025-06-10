@@ -5,11 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalorieCounter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500"  Width="1000" ResizeMode="NoResize">
+        Title="MainWindow" Height="600"  Width="1000" ResizeMode="NoResize">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="665*"/>
+            <ColumnDefinition Width="311*"/>
+            <ColumnDefinition Width="24*"/>
+        </Grid.ColumnDefinitions>
+
         <!--Database food-->
         <ListView ItemsSource="{Binding Food}" SelectionMode="Single"
-          Name="FoodListView" MouseDoubleClick="FoodListView_MouseDoubleClick" Margin="0,0,515,103">
+          Name="FoodListView" MouseDoubleClick="FoodListView_MouseDoubleClick" Margin="170,120,9,98">
+            <ListView.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFC5AEAE" Offset="1"/>
+                    <GradientStop Color="#FFE0BEBE" Offset="0.187"/>
+                    <GradientStop Color="#FFF9F4F4" Offset="0.062"/>
+                </LinearGradientBrush>
+            </ListView.Background>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="5">
@@ -26,12 +42,15 @@
 
         <!--List of foods-->
 
-        <ListView ItemsSource="{Binding ListOfFoods}" Margin="715,89,0,0">
+        <ListView ItemsSource="{Binding ListOfFoods}" Margin="96,191,10,11" BorderThickness="2,2,2,2" BorderBrush="LightYellow" Grid.Column="1" Grid.ColumnSpan="2">
+            <ListView.Background>
+                <ImageBrush ImageSource="https://img.freepik.com/free-photo/watercolor-pastel-background_23-2151891302.jpg?semt=ais_hybrid&amp;w=740"/>
+            </ListView.Background>
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsActivity}" Value="True">
-                            <Setter Property="Background" Value="LightCoral"/>
+                            <Setter Property="Background" Value="#FFEBE4CA"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
@@ -71,17 +90,91 @@
 
         <!--Buttons-->
 
-        <Button Content="Calculate Total Calories" Click="CalculateTotalCalories_Click" RenderTransformOrigin="2.202,4.078" Margin="722,5,10,425"/>
-        <Button Content="Clear List" Click="ClearList_Click" Margin="293,429,621,11"/>
+        <Button Content="Calculate Total Calories" Click="CalculateTotalCalories_Click" RenderTransformOrigin="2.202,4.078" Margin="290,508,129,10">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFFAF5DE" Offset="1"/>
+                    <GradientStop Color="#FFF8DAFF" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Clear List" Click="ClearList_Click" Width="120" Height="41" Margin="80,25,0,0"
+        HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" BorderThickness="1" BorderBrush="#FFA1A1A1" >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="Pink" Offset="0.0"/>
+                                <GradientStop Color="#FFFEE140" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Foreground>Black</Button.Foreground>
+            <Button.FontWeight>Bold</Button.FontWeight>
+        </Button>
 
-        <Button Content="Add Food" Click="AddFood_Click" Margin="10,431,904,10"/>
-        <Button Content="Edit food" Click="EditFood_Click" Margin="101,430,812,11"/>
-        <Button Content="Delete food" Click="DeleteFood_Click" Margin="196,429,712,11"/>
 
-        <Button Content="View Activities" Click="ViewActivities_Click" Width="98" Height="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="612,11,0,0"/>
-        <Button Content="BMI Calculator" Click="BMICalculator_Click"
-        Width="120" Height="42" HorizontalAlignment="Left" VerticalAlignment="Top"
-        Margin="490,11,0,0"/>
+        <!--Button for editing food database-->
+
+        <Button Content="Food Database" Margin="10,12,466,510" Click="FoodDatabaseButton_Click" FontSize="18" FontWeight="Bold">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFFFFDE6" Offset="0.7"/>
+                    <GradientStop Color="#FFFFD475" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.ContextMenu>
+                <ContextMenu x:Name="FoodDatabaseMenu">
+                    <MenuItem Header="Add Food" Click="AddFood_Click"/>
+                    <MenuItem Header="Edit Food" Click="EditFood_Click"/>
+                    <MenuItem Header="Delete Food" Click="DeleteFood_Click"/>
+                </ContextMenu>
+            </Button.ContextMenu>
+        </Button>
+
+
+        <Button Content="View Activities" Click="ViewActivities_Click" Width="120" Height="41" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,25,0,0" Grid.Column="1" Grid.ColumnSpan="2">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" BorderThickness="1" BorderBrush="#FFA1A1A1" >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFFEE140" Offset="0.0"/>
+                                <GradientStop Color="pink" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Foreground>Black</Button.Foreground>
+            <Button.FontWeight>Bold</Button.FontWeight>
+        </Button>
+
+        <Button Content="BMI Calculator" Click="BMICalculator_Click" Width="120" Height="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="603,25,0,0" Grid.ColumnSpan="2">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="20" BorderThickness="1" BorderBrush="#FFA1A1A1" >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFFFCD71" Offset="0.0"/>
+                                <GradientStop Color="White" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Foreground>Black</Button.Foreground>
+            <Button.FontWeight>Bold</Button.FontWeight>
+        </Button>
+
 
         <!--Category selection-->
         <ComboBox 
@@ -89,7 +182,10 @@
     DisplayMemberPath="CategoryTitle"
     SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"
     SelectionChanged="CategoryComboBox_SelectionChanged"
-    Margin="306,16,558,418"/>
+    Margin="479,135,34,397" Background="#FFC8A5A5"/>
+        <Rectangle HorizontalAlignment="Left" Height="81" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FFEEE5E5" StrokeThickness="2" Panel.ZIndex="-6" Grid.ColumnSpan="3"/>
+        <Label Content="Calorie Counter&#xD;&#xA;" HorizontalAlignment="Left" Margin="332,16,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Tw Cen MT Condensed Extra Bold" Height="58" Width="284" Background="{x:Null}" Foreground="#FFC39237"/>
+
 
 
 
