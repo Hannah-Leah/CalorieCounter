@@ -62,7 +62,7 @@
                         <StackPanel>
                             <TextBlock Text="{Binding Title}" FontWeight="Bold"/>
 
-                            <TextBlock Text="{Binding Calories, StringFormat='Calories: {0} kcal'}"/>
+                            <TextBlock Text="{Binding Calories, StringFormat='Kalorien: {0} kcal'}"/>
 
                             <!-- Show macros only if IsActivity is false -->
                             <StackPanel>
@@ -76,10 +76,10 @@
                                     </Style>
                                 </StackPanel.Style>
 
-                                <TextBlock Text="{Binding Grams, StringFormat='Grams: {0}g'}"/>
+                                <TextBlock Text="{Binding Grams, StringFormat='Gramm: {0}g'}"/>
                                 <TextBlock Text="{Binding Protein, StringFormat='Protein: {0} g'}"/>
                                 <TextBlock Text="{Binding Carbs, StringFormat='Carbs: {0} g'}"/>
-                                <TextBlock Text="{Binding Fat, StringFormat='Fat: {0} g'}"/>
+                                <TextBlock Text="{Binding Fat, StringFormat='Fett: {0} g'}"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
@@ -90,7 +90,7 @@
 
         <!--Buttons-->
 
-        <Button Content="Calculate Total Calories" Click="CalculateTotalCalories_Click" RenderTransformOrigin="2.202,4.078" Margin="290,508,129,10">
+        <Button Content="Kalorien berechnen" Click="CalculateTotalCalories_Click" RenderTransformOrigin="2.202,4.078" Margin="290,508,129,10" FontSize="18" FontFamily="Verdana Pro Semibold">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -99,7 +99,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Clear List" Click="ClearList_Click" Width="120" Height="41" Margin="80,25,0,0"
+        <Button Content="Liste löschen" Click="ClearList_Click" Width="120" Height="41" Margin="80,25,0,0"
         HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
@@ -121,7 +121,7 @@
 
         <!--Button for editing food database-->
 
-        <Button Content="Food Database" Margin="10,12,466,510" Click="FoodDatabaseButton_Click" FontSize="18" FontWeight="Bold">
+        <Button Content="Lebensmittel Datenbank" Margin="10,12,466,510" Click="FoodDatabaseButton_Click" FontSize="14" FontWeight="Bold">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -131,15 +131,15 @@
             </Button.Background>
             <Button.ContextMenu>
                 <ContextMenu x:Name="FoodDatabaseMenu">
-                    <MenuItem Header="Add Food" Click="AddFood_Click"/>
-                    <MenuItem Header="Edit Food" Click="EditFood_Click"/>
-                    <MenuItem Header="Delete Food" Click="DeleteFood_Click"/>
+                    <MenuItem Header="Hinzufügen" Click="AddFood_Click"/>
+                    <MenuItem Header="Bearbeiten" Click="EditFood_Click"/>
+                    <MenuItem Header="Löschen" Click="DeleteFood_Click"/>
                 </ContextMenu>
             </Button.ContextMenu>
         </Button>
 
 
-        <Button Content="View Activities" Click="ViewActivities_Click" Width="120" Height="41" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,25,0,0" Grid.Column="1" Grid.ColumnSpan="2">
+        <Button Content="Aktivitäten anzeigen" Click="ViewActivities_Click" Width="120" Height="41" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,25,0,0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="11">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="20" BorderThickness="1" BorderBrush="#FFA1A1A1" >
@@ -157,7 +157,7 @@
             <Button.FontWeight>Bold</Button.FontWeight>
         </Button>
 
-        <Button Content="BMI Calculator" Click="BMICalculator_Click" Width="120" Height="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="603,25,0,0" Grid.ColumnSpan="2">
+        <Button Content="BMI Rechner" Click="BMICalculator_Click" Width="120" Height="42" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="603,25,0,0" Grid.ColumnSpan="2">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="20" BorderThickness="1" BorderBrush="#FFA1A1A1" >

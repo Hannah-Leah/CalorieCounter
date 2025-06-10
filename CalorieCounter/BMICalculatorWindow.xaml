@@ -17,29 +17,29 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="0,0,0,10">
-            <TextBlock Text="Age:"/>
+            <TextBlock Text="Alter:"/>
             <TextBox x:Name="AgeTextBox"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Margin="0,0,0,10">
-            <TextBlock Text="Gender:"/>
+            <TextBlock Text="Geschlecht:"/>
             <ComboBox x:Name="GenderComboBox">
-                <ComboBoxItem Content="Male"/>
-                <ComboBoxItem Content="Female"/>
+                <ComboBoxItem Content="Männlich"/>
+                <ComboBoxItem Content="Weiblich"/>
             </ComboBox>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Margin="0,0,0,10">
-            <TextBlock Text="Height (cm):"/>
+            <TextBlock Text="Größe (cm):"/>
             <TextBox x:Name="HeightTextBox"/>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Margin="0,0,0,10">
-            <TextBlock Text="Weight (kg):"/>
+            <TextBlock Text="Gewicht (kg):"/>
             <TextBox x:Name="WeightTextBox"/>
         </StackPanel>
 
-        <Button Grid.Row="4" Content="Calculate BMI" Click="CalculateBMI_Click" Margin="0,5">
+        <Button Grid.Row="4" Content=" BMI Berechnen" Click="CalculateBMI_Click" Margin="0,5">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFA4D5FA"/>

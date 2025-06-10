@@ -50,7 +50,7 @@ namespace CalorieCounter
             }
             else
             {
-                MessageBox.Show("Please select an activity and enter valid minutes.");
+                MessageBox.Show("Bitte wählen Sie eine Aktivität aus und geben Sie gültige Minuten ein.");
             }
         }
 

@@ -34,19 +34,19 @@ namespace CalorieCounter
 
                 string category = "";
                 if (bmi < 18.5)
-                    category = "Underweight";
+                    category = "Untergewichtig";
                 else if (bmi < 25)
-                    category = "Normal weight";
+                    category = "Normalgewicht";
                 else if (bmi < 30)
-                    category = "Overweight";
+                    category = "Übergewichtig";
                 else
-                    category = "Obese";
+                    category = "fettleibig";
 
-                ResultTextBlock.Text = $"Your BMI: {Math.Round(bmi, 2)} - {category}";
+                ResultTextBlock.Text = $"Dein BMI: {Math.Round(bmi, 2)} - {category}";
             }
             else
             {
-                MessageBox.Show("Please enter valid numbers for height and weight.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Bitte geben Sie gültige Zahlen für Größe und Gewicht ein.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }

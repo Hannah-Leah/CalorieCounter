@@ -10,14 +10,14 @@
         <ListView Name="ActivityListView" Margin="19,10,10,102">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Activity" DisplayMemberBinding="{Binding ActivityTitle}" />
-                    <GridViewColumn Header="Intensity" DisplayMemberBinding="{Binding IntensityFkNavigation.IntensityLevel}" />
-                    <GridViewColumn Header="Calories burned per minute" Width="200" DisplayMemberBinding="{Binding CaloriesBurned}" />
+                    <GridViewColumn Header="Aktivität" Width="100" DisplayMemberBinding="{Binding ActivityTitle}" />
+                    <GridViewColumn Header="Intensität" Width="100" DisplayMemberBinding="{Binding IntensityFkNavigation.IntensityLevel}" />
+                    <GridViewColumn Header="Kalorienverbrauch pro Minute" Width="200" DisplayMemberBinding="{Binding CaloriesBurned}" />
                 </GridView>
             </ListView.View>
         </ListView>
         <TextBox Name="MinutesInput" Margin="73,291,392,52" />
-        <Button Content="Add to List" Click="AddToList_Click" Margin="349,317,20,10" Background="#FFD5DDFF">
+        <Button Content="Zur Liste hinzufügen" Click="AddToList_Click" Margin="349,317,20,10" Background="#FFD5DDFF">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="20" BorderThickness="1" BorderBrush="#FFA1A1A1" >
@@ -34,7 +34,7 @@
             <Button.Foreground>Black</Button.Foreground>
             <Button.FontWeight>Bold</Button.FontWeight>
         </Button>
-        <Label Content=" minutes:" HorizontalAlignment="Left" Margin="0,287,0,0" VerticalAlignment="Top"/>
+        <Label Content=" Minuten:" HorizontalAlignment="Left" Margin="0,287,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

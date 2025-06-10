@@ -87,11 +87,11 @@ namespace CalorieCounter
             }
 
             MessageBox.Show(
-                $"Total Calories: {Math.Round(totalCalories)} kcal\n" +
+                $"Gesamt Kalorien: {Math.Round(totalCalories)} kcal\n" +
                 $"Protein: {totalProtein} g\n" +
                 $"Carbs: {totalCarbs} g\n" +
-                $"Fat: {totalFat} g\n\n" +
-                $"Calories by Category:\n{categoryInfo}",
+                $"Fett: {totalFat} g\n\n" +
+                $"Kalorien nach Kategorie:\n{categoryInfo}",
                 "Meal Summary",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information
@@ -205,7 +205,7 @@ namespace CalorieCounter
             }
             else
             {
-                MessageBox.Show("Please select a food item!");
+                MessageBox.Show("Bitte wählen Sie ein Lebensmittel aus!");
             }
         }
 
@@ -221,7 +221,7 @@ namespace CalorieCounter
         {
             if (FoodListView.SelectedItem is Food selected)
             {
-                if (MessageBox.Show("Delete this food?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Dieses Lebensmittel löschen?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     // Load related FoodFoodCategories if not loaded
                     ViewModel.DbContext.Entry(selected)
@@ -242,7 +242,7 @@ namespace CalorieCounter
             }
             else
             {
-                MessageBox.Show("Please select a food item!");
+                MessageBox.Show("Bitte wählen Sie ein Lebensmittel aus!");
             }
         }
 

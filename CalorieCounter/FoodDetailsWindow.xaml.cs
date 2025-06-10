@@ -23,12 +23,12 @@ namespace CalorieCounter
             if (double.TryParse(GramsInput.Text, out double grams) && grams > 0)
             {
                 _mainViewModel.AddToList(_food, grams);
-                MessageBox.Show("Added to list!");
+                MessageBox.Show("Zur Liste hinzugefügt!");
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Please enter a valid weight in grams.");
+                MessageBox.Show("Bitte geben Sie ein gültiges Gewicht in Gramm ein.");
             }
         }
     }
