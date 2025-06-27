@@ -302,5 +302,16 @@ namespace CalorieCounter
             }
         }
 
+        private void ScrollLeft_Click(object sender, RoutedEventArgs e)
+        {
+            FoodScrollViewer.ScrollToHorizontalOffset(FoodScrollViewer.HorizontalOffset - 200);
+        }
+
+        private void ScrollRight_Click(object sender, RoutedEventArgs e)
+        {
+            FoodScrollViewer.ScrollToHorizontalOffset(FoodScrollViewer.HorizontalOffset + 200);
+        }
+
+
     }
 }
